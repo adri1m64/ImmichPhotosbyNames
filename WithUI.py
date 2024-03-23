@@ -8,7 +8,13 @@ from io import BytesIO
 link = str(input("Enter the link your Immich, inluding the protocol and the / at the end: "))
 apikey = str(input("Enter the API key: "))
 path = str(input("Enter the path where you want to save the images, including the / at the end: "))
+
+
+
 def GetPersons():
+  """Get the list of persons in Immich
+  Returns:
+      dict -- The list of persons"""
   url = link+"api/person"
 
 
@@ -28,12 +34,23 @@ print(GetPersons())
 
 
 def GetUUID(liste , personne):
+  """Get the UUID of the asked person
+  Arguments:
+      liste {dict} -- The list of persons
+      personne {str} -- The name of the person
+      Returns:
+      str -- The UUID of the person"""
   for i in liste["people"]:
     if i["name"] == personne:
       return i["id"]
   return "Rien trouvé"
 
 def GetAssetsfromperson(id):
+  """Get the assets of a person
+  Arguments:
+      id {str} -- The UUID of the person
+      Returns:
+      list -- The list of assets of the person, with the ID and the extension of the file"""
   url = link + id + "/assets"
 
 
@@ -50,7 +67,7 @@ def GetAssetsfromperson(id):
   liste = json.loads(response.text)
   res = []
   for i in liste:
-    res.append((i["id"],(i["originalFileName"].split(".")[1])))
+    res.append((i["id"],(i["originalFileName"].split(".")[1]))) 
   return res
 
 
