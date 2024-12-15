@@ -3,8 +3,8 @@ Hello everyone, I love Immich so I created this tool to download automaticaly ph
 You've 2 options:
 
 The UI option have input in so you juste have to enter during the input:
-- You're immich site (inluding the HTTPS and the / at end)
-- You're API key
+- Your Immich site (inluding the HTTP and the / at end)
+- Your API key
 - The path where you want to save the images (inluding the / at the end)
 
 for the GUI:
